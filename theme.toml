@@ -1,0 +1,12 @@
+name = "Ishill"
+license = "MIT"
+licenselink = "https://github.com/ussjoin/ishill"
+description = "Ishill is a Hugo theme and scripts that enable Markdown-to-{Blog, Zine, PDF, etc.} publishing easily."
+homepage = "https://github.com/ussjoin/ishill"
+tags = ["publishing", "zine"]
+features = []
+min_version = "0.01"
+
+[author]
+  name = "Brendan Francis O'Connor"
+  homepage = "https://ussjoin.com"

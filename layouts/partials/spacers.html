@@ -1,0 +1,9 @@
+{{- if ge .Params.extra_spacer_pages 1 -}}
+    <div class="spacer">{{ .Site.Params.Spacer1 }}</div>
+{{- end -}}
+{{- if ge .Params.extra_spacer_pages 2 -}}
+    <div class="spacer">{{ .Site.Params.Spacer2 }}</div>
+{{- end -}}
+{{- if ge .Params.extra_spacer_pages 3 -}}
+    <div class="spacer">{{ .Site.Params.Spacer3 }}</div>
+{{- end -}}

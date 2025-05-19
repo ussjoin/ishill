@@ -1,0 +1,77 @@
+{{ define "main" }}
+
+{{- partial "titlepage.html" . -}}
+
+<div class="altformats">
+    Alternate formats:
+    <ul>
+        <li><a href="./{{- .Title | urlize -}}.view.pdf">PDF (Reading)</a></li>
+        <li><a href="./{{- .Title | urlize -}}.zine.pdf">PDF (Imposed for printing, Letter Size Paper)</a></li>
+    </ul>
+</div>
+
+<div class="introduction">
+    {{ .Content }}
+</div>
+
+{{- range .Resources.ByType "page" -}}
+    {{ .Page.Store.Delete "footnote_counter" }}
+    {{ .Page.Store.Set "footnote_counter" 0 }}
+    {{ $.Page.Store.Set "this_article_name" .File }}
+    {{ .Page.Store.Set "footnotes" slice }}
+    
+    <article class="article">
+        <a id="{{- .File -}}" href="#{{- .File -}}"></a>
+        <h2 class="title">{{ .Title }}</h2>
+        <address class="meta">
+            {{ if .Params.author_url }}
+            <a class="author" rel="author" href="{{- .Params.author_url -}}">
+                {{ end }}
+                {{- .Params.author -}}
+                {{- if .Params.author_url -}}
+            </a>
+            {{- end -}}
+            <time datetime="{{ dateFormat " 2006-01-02" .Params.original_date }}">{{ dateFormat ":date_medium"
+                .Params.original_date }}</time>
+        </address>
+
+        {{ if isset .Params "tldr" }}
+        <div class="tldr">
+            <strong>tl;dr:</strong>
+            {{ .Params.tldr }}
+        </div>{{ end }}
+        <div class="body">
+            {{ .Content }}
+        </div>
+        {{- if gt (.Page.Store.Get "footnotes" | len) 0 -}}
+            <div class="printonly-footnotes">
+                Footnotes:
+                <ol>
+                    {{- range .Page.Store.Get "footnotes" -}}
+                    <li><a id="{{- .identifier -}}"><a href="{{ .reference | safeURL }}">{{- .reference -}}</a></li>
+                    {{- end -}}
+                </ol>
+            </div>
+        {{- end -}}
+        <div class="post-tags">
+            {{ if ne .Type "page" }}
+            {{ if gt .Params.tags 0 }}
+            <nav class="nav tags">
+                <ul class="tags">
+                    {{ range .Params.tags }}
+                    <li><a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+                    {{ end }}
+                </ul>
+            </nav>
+            {{ end }}
+            {{ end }}
+        </div>
+        
+    </article>
+
+{{- end -}}
+
+{{- partial "spacers.html" . -}}
+
+<!-- *All* content has to go before this end! -->
+{{ end }}

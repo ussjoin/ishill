@@ -1,0 +1,58 @@
+{{- $thetype := "leaflet" -}}
+{{- $thetypename := "Leaflet" -}}
+{{- if eq .Type "monographs" -}}
+    {{- $thetype = "monograph" -}}
+    {{- $thetypename = "Monograph" -}}
+{{- end -}}
+
+<div class="titlepage-print"><div class="titlepage-print-container">
+    <div class="titlepage-publisher"><div class="movingbox">
+        {{ .Site.Title }} presents <div class="publisher-rule"><hr></div>
+    </div></div>
+    <div class="titlepage-title"><div class="movingbox">
+        {{- if eq $thetype "leaflet" -}}
+            {{ .Page.Title }}
+        {{- else -}}
+        {{ with index (.Resources.ByType "page") 0 }}{{ .Page.Title }}{{end}}
+        {{- end -}}
+    </div></div>
+    <div class="titlepage-type"><div class="movingbox">
+        A {{ $thetypename }}
+        {{ if eq $thetype "monograph" }}
+            By
+        {{ else if eq $thetype "leaflet" }}
+            Curated by
+        {{ end }}
+    </div></div>
+    <div class="titlepage-author"><div class="movingbox">
+        {{ if eq $thetype "monograph" }}
+            {{ with index (.Resources.ByType "page") 0 }}{{ .Params.author }}{{end}}
+        {{ else if eq $thetype "leaflet" }}
+            {{ .Params.author}}
+        {{ end }}
+    </div></div>
+    <div datetime="" class="titlepage-publicationdate-published"><div class="movingbox">
+        And Published
+    </div></div>
+    <div datetime="" class="titlepage-publicationdate"><div class="movingbox">
+        {{- if eq $thetype "leaflet" -}}
+            {{ dateFormat ":date_medium" .Date }}
+        {{- else -}}
+            {{ with index (.Resources.ByType "page") 0 }}{{ dateFormat ":date_medium" .Params.original_date }}{{end}}
+        {{- end -}}
+    </div></div>
+    {{- if eq $thetype "leaflet" -}}
+        <div class="toc"><div class="movingbox">
+            <span class="toc-leadin-web">Table of contents:</span>
+            <span class="toc-leadin-print">Comprising the following articles:</span>
+            <nav id="TableOfContents">
+                <ol>
+                    {{- range .Resources.ByType "page" -}}
+                        <li><a href="#{{- .File -}}">{{ .Title }}</a> — {{ .Params.author }}</li>
+                    {{- end -}}
+                </ol>
+            </nav>
+        </div></div>
+    {{- end -}}
+</div></div>
+
