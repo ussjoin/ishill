@@ -1,2 +1,2 @@
-# ishill
-A zine publishing theme and stack, built on Hugo.
+# Ishill: a Thing for Hugo
+Content.

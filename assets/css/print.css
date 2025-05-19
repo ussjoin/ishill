@@ -1,0 +1,188 @@
+a {
+        color: #050505;
+    }
+
+    /* Stuff for the front and endmatter */
+    header {
+        /* The normal clickable header and menu */
+        display: none;
+    }
+
+    .titlepage-print {
+        display: table;
+        border: 3px solid grey;
+        border-collapse: collapse;
+    }
+
+    .titlepage-print-container {
+        display:table;
+        text-align: center;
+        height: 8in;
+        
+        break-after: page;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 3rem;
+        
+        vertical-align: middle;
+    }
+
+    .movingbox {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        text-align: center;
+    }
+
+    /*
+        Heights:
+            Publisher: 10%
+            Title: 30%;
+            Author: 15%;
+            Date: 15%;
+            TOC (optional): 30%;
+    */
+
+    .titlepage-publisher {
+        font-size: 1.3rem;
+        display: table-row;
+        height: 5%;
+    }
+    .titlepage-title {
+        font-size: 2rem;
+        line-height: 2rem;
+        display: table-row;
+        height: 35%;
+        border-bottom: 3px double grey;
+    }
+
+    .titlepage-type, .titlepage-publicationdate-published {
+        display: table-row;
+        font-size: 1.3rem;
+        height: 7%;
+        border-top: 3px double grey;
+    }
+
+    .titlepage-author, .titlepage-publicationdate {
+        display: table-row;
+        height: 8%;
+    }
+
+    .toc {
+        display: table-row;
+        border-top: 3px double grey;
+        background-color: #ffffff;
+        color: #000000;
+        
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 70%;
+        font-size: large;
+        line-height: 1.5em;
+        height: 30%;
+    }
+
+    .toc > .movingbox {
+        text-align: left;
+    }
+
+    .toc-leadin-web {
+        display: none;
+    }
+
+    .toc-leadin-print {
+        display: block;
+        text-align: center;
+    }
+
+    .toc ol {
+        list-style-type: disc;
+    }
+
+    .web-link {
+        display: none;
+    }
+
+    .printonly-link {
+        display: inline;
+    }
+
+    .altformats {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .printonly-footnotes {
+        display: block;
+        font-size: x-small;
+        line-height: 0.5rem;
+    }
+
+    .spacer {
+        display: block;
+        text-align: center;
+        font-size: smaller;
+        break-before: page;
+        padding-top: 7in;
+    }
+
+    footer {
+        break-before: left;
+    }
+
+
+    .footer-info {
+        padding-top: 6in;
+    }
+
+
+
+    /* Main stuff */
+    @page {
+        size: 5.5in 8.5in portrait;
+        margin: 0.25in;
+    }
+
+    @page :left {
+        @bottom-left {
+            font-size: x-small;
+            margin-bottom: 0.25in;
+            content: counter(page) ' / ' counter(pages);
+        }
+    }
+
+    @page :right {
+        @bottom-right {
+            font-size: x-small;
+            margin-bottom: 0.25in;
+            content: counter(page) ' / ' counter(pages);
+        }
+    }
+
+    @page :first {
+        @bottom-right {
+            font-size: x-small;
+            margin-bottom: 0.25in;
+            content: '';
+        }
+
+        /* @bottom-center {
+            content: element(publisher);
+        } */
+    }
+
+    article {
+        break-before: page;
+    }
+
+    html {
+        font-size: large;
+    }
+
+    p {
+        font-size: medium;
+        line-height: 1em;
+    }
