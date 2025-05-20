@@ -25,11 +25,11 @@
         <h2 class="title">{{ .Title }}</h2>
         <address class="meta">
             {{ if .Params.author_url }}
-            <a class="author" rel="author" href="{{- .Params.author_url -}}">
-                {{ end }}
-                {{- .Params.author -}}
-                {{- if .Params.author_url -}}
-            </a>
+                <a class="author" rel="author" href="{{- .Params.author_url -}}">
+            {{ end }}
+            {{- .Params.author -}}
+            {{- if .Params.author_url -}}
+                </a>
             {{- end -}}
             <time datetime="{{ dateFormat " 2006-01-02" .Params.original_date }}">{{ dateFormat ":date_medium"
                 .Params.original_date }}</time>
@@ -43,6 +43,7 @@
         <div class="body">
             {{ .Content }}
         </div>
+
         {{- if gt (.Page.Store.Get "footnotes" | len) 0 -}}
             <div class="printonly-footnotes">
                 Footnotes:
@@ -53,20 +54,6 @@
                 </ol>
             </div>
         {{- end -}}
-        <div class="post-tags">
-            {{ if ne .Type "page" }}
-            {{ if gt .Params.tags 0 }}
-            <nav class="nav tags">
-                <ul class="tags">
-                    {{ range .Params.tags }}
-                    <li><a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-                    {{ end }}
-                </ul>
-            </nav>
-            {{ end }}
-            {{ end }}
-        </div>
-        
     </article>
 
 {{- end -}}
