@@ -8,8 +8,10 @@
 	<meta property="og:title" content="{{ $siteTitle }} | Home" />
 	{{- else -}}
 	<title>{{ $title }} - {{ $siteTitle }}</title>
-	<meta property="og:title" content="{{ $title }} - {{ $siteTitle }}" />
+	<meta property="og:title" content="{{ $title }}" />
 	{{- end -}}
+
+	<meta property="og:site_name" content="{{ $siteTitle }}"/>
 
 	{{- if isset .Site.Params "favicon" -}}
 	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
