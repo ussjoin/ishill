@@ -1,7 +1,7 @@
 name = "Ishill"
 license = "MIT"
 licenselink = "https://github.com/ussjoin/ishill/blob/main/LICENSE"
-description = "Ishill is a Hugo theme and scripts that enable Markdown-to-{Blog, Zine, PDF, etc.} publishing efficiently."
+description = "Ishill is a Hugo theme and scripts that enable Markdown-to-{Blog, Zine, PDF, etc.} publishing easily."
 homepage = "https://github.com/ussjoin/ishill"
 tags = ["publishing", "zine"]
 features = []
