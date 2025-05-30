@@ -69,7 +69,7 @@ jobs:
             --minify \
             --baseURL "http://localhost/"
       - name: Build zines
-        run: cd exampleSite/public && bash ./zineify.sh
+        run: cd exampleSite/public && find . && cat index.html && bash ./zineify.sh
       - name: Build with Hugo for Real
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
