@@ -11,7 +11,7 @@ const vivliostyleConfig = [
         language: 'en',
         readingProgression: 'ltr', // reading progression direction, 'ltr' or 'rtl'.
         size: '5.5in,8.5in',
-        image: 'ghcr.io/vivliostyle/cli:8.20.0',
+        image: 'ghcr.io/vivliostyle/cli:latest',
         entry: [ // **required field**
             '.{{ .RelPermalink }}index.html'
         ],
