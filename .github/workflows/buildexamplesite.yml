@@ -69,7 +69,7 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Build zines
-        run: bash exampleSite/public/zineify.sh
+        run: cd exampleSite/public && bash ./zineify.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
