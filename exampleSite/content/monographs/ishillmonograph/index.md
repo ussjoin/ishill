@@ -1,6 +1,7 @@
 +++
 date = '2025-05-30'
 draft = false
+title = 'Ishill Monograph'
 [params]
     extra_spacer_pages = 2
 [build]
