@@ -46,7 +46,7 @@ jobs:
       - name: Install Vivliostyle
         run: npm install -g @vivliostyle/cli # https://github.com/vivliostyle/vivliostyle-cli?tab=readme-ov-file
       - name: Install psutils
-        run: apt install psutils # https://github.com/rrthomas/psutils
+        run: sudo apt install psutils # https://github.com/rrthomas/psutils
       - name: Checkout
         uses: actions/checkout@v4
         with:
