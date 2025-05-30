@@ -13,10 +13,10 @@ const vivliostyleConfig = [
         size: '5.5in,8.5in',
         image: 'ghcr.io/vivliostyle/cli:latest',
         entry: [ // **required field**
-            '.{{ .RelPermalink }}index.html'
+            '.{{ .Path }}/index.html'
         ],
         output: [ // path to generate draft file(s). default to '{title}.pdf'
-        '.{{ .RelPermalink }}{{- .Title | urlize -}}.view.pdf',
+        '.{{ .Path }}/{{- .Title | urlize -}}.view.pdf',
         ],
         // cover: './cover.png', // cover image. default to undefined.
     },
