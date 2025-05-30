@@ -66,9 +66,10 @@ jobs:
           cd exampleSite &&
           hugo \
             --gc \
+            --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Build zines
-        run: cd exampleSite/public && cat vivliostyle.config.js && bash ./zineify.sh
+        run: cd exampleSite/public && bash ./zineify.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

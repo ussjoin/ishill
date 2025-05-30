@@ -4,8 +4,8 @@
 
 vivliostyle build --http
 {{ range $pages }}
-    INNAME='.{{ .RelPermalink }}{{- .Title | urlize -}}.view.pdf'
-    OUTNAME='.{{ .RelPermalink }}{{- .Title | urlize -}}.zine.pdf'
+    INNAME='.{{ .Path }}/{{- .Title | urlize -}}.view.pdf'
+    OUTNAME='.{{ .Path }}/{{- .Title | urlize -}}.zine.pdf'
     psbook $INNAME | psnup -2 -p letter > $OUTNAME
 {{ end }}
 
