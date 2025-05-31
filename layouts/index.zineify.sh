@@ -2,7 +2,7 @@
 
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 
-vivliostyle build --http
+vivliostyle build
 {{ range $pages }}
     INNAME='.{{ .Path }}/{{- .Title | urlize -}}.view.pdf'
     OUTNAME='.{{ .Path }}/{{- .Title | urlize -}}.zine.pdf'

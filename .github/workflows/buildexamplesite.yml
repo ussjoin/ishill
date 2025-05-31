@@ -66,17 +66,16 @@ jobs:
           cd exampleSite &&
           hugo \
             --gc \
-            --minify \
             --baseURL "http://localhost/"
       - name: Build zines
-        run: cd exampleSite/public && find . && cat index.html && bash ./zineify.sh
+        run: pwd && cd exampleSite/public && bash ./zineify.sh
       - name: Build with Hugo for Real
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: America/Los_Angeles
         run: |
-          cd exampleSite &&
+          pwd && cd exampleSite &&
           hugo \
             --gc \
             --minify \
