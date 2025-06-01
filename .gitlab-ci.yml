@@ -1,3 +1,6 @@
+variables:
+  HUGO_VERSION: 0.147.7
+
 default:
   image: ubuntu
 
@@ -8,10 +11,12 @@ stages:
 build-job:
   stage: build
   script:
-    - apt update && apt upgrade
-    - apt install wget psutils nodejs # https://github.com/rrthomas/psutils
-    - wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i hugo.deb && rm hugo.deb
+    - set -eux pipefail
+    - apt update && apt upgrade -y
+    - apt install -y wget psutils nodejs npm # https://github.com/rrthomas/psutils
+    - wget -O hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+    - dpkg -i hugo.deb
+    - rm hugo.deb
     - npm install -g @vivliostyle/cli # https://github.com/vivliostyle/vivliostyle-cli?tab=readme-ov-file
     - "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
     - snap install dart-sass
