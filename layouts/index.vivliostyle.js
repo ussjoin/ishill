@@ -19,6 +19,10 @@ const vivliostyleConfig = [
         '.{{ .Path }}/{{- .Title | urlize -}}.view.pdf',
         ],
         // cover: './cover.png', // cover image. default to undefined.
+        static: {
+            '/css': './css',
+            '/fonts': './fonts',
+        },
     },
     {{ end }}
 ];
