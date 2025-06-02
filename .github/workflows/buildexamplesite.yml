@@ -45,8 +45,10 @@ jobs:
         run: sudo snap install dart-sass
       - name: Install Vivliostyle
         run: npm install -g @vivliostyle/cli # https://github.com/vivliostyle/vivliostyle-cli?tab=readme-ov-file
-      - name: Install psutils
-        run: sudo apt install psutils # https://github.com/rrthomas/psutils
+      - name: Install Python Venv
+        run: sudo apt install python3-pip # https://github.com/rrthomas/psutils
+      - name: Configure Python Venv
+        run: python3 -m venv ${{ runner.temp }}/tmpvenv && $ {{ runner.temp }}/tmpvenv/bin/pip install pdfimpose
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -68,7 +70,7 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" &&
-          cd public && bash ./zineify.sh
+          cd public && source {{ runner.temp }}/tmpvenv/bin/activate && bash ./zineify.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
