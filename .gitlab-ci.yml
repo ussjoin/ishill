@@ -13,13 +13,14 @@ build-job:
   script:
     - set -eux pipefail
     - apt update && apt upgrade -y
-    - apt install -y wget psutils git # https://github.com/rrthomas/psutils
+    - apt install -y wget git # https://github.com/rrthomas/psutils
     - wget -O hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
     - dpkg -i hugo.deb
     - rm hugo.deb
     - npm install -g @vivliostyle/cli # https://github.com/vivliostyle/vivliostyle-cli?tab=readme-ov-file
     - npm install -g sass
     - "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+    - pip3 install pdfimpose
     - cd exampleSite && hugo --gc --minify --baseURL "$CI_PAGES_URL/"
     - cd public && bash ./zineify.sh
   pages:
