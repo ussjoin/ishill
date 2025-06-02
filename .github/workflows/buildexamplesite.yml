@@ -48,7 +48,7 @@ jobs:
       - name: Install Python Venv
         run: sudo apt install python3-pip # https://github.com/rrthomas/psutils
       - name: Configure Python Venv
-        run: python3 -m venv ${{ runner.temp }}/tmpvenv && $ {{ runner.temp }}/tmpvenv/bin/pip install pdfimpose
+        run: python3 -m venv ${{ runner.temp }}/tmpvenv && ${{ runner.temp }}/tmpvenv/bin/pip install pdfimpose
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -70,7 +70,7 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" &&
-          cd public && source {{ runner.temp }}/tmpvenv/bin/activate && bash ./zineify.sh
+          cd public && source ${{ runner.temp }}/tmpvenv/bin/activate && bash ./zineify.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
