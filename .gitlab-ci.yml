@@ -22,7 +22,6 @@ build-job:
     - npm install -g @vivliostyle/cli # https://github.com/vivliostyle/vivliostyle-cli?tab=readme-ov-file
     - npm install -g sass
     - "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-    - pip3 install pdfimpose
     - cd exampleSite && hugo --gc --minify --baseURL "$CI_PAGES_URL/"
     - cd public && source /tmp/tmpvenv/bin/activate && bash ./zineify.sh
   pages:
