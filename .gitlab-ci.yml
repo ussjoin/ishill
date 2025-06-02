@@ -14,6 +14,8 @@ build-job:
     - set -eux pipefail
     - apt update && apt upgrade -y
     - apt install -y wget git python3-pip # https://github.com/rrthomas/psutils
+    - python3 -m venv /tmp/tmpvenv
+    - /tmp/tmpvenv/bin/pip install pdfimpose
     - wget -O hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
     - dpkg -i hugo.deb
     - rm hugo.deb
@@ -22,7 +24,7 @@ build-job:
     - "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
     - pip3 install pdfimpose
     - cd exampleSite && hugo --gc --minify --baseURL "$CI_PAGES_URL/"
-    - cd public && bash ./zineify.sh
+    - cd public && source /tmp/tmpvenv/bin/activate && bash ./zineify.sh
   pages:
     publish: exampleSite/public
   artifacts:
