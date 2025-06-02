@@ -11,6 +11,7 @@ const vivliostyleConfig = [
         readingProgression: 'ltr', // reading progression direction, 'ltr' or 'rtl'.
         size: '5.5in,8.5in',
         image: 'ghcr.io/vivliostyle/cli:latest',
+        renderMode: 'docker',
         entry: [ // **required field**
             '.{{ .Path }}/index.html'
         ],

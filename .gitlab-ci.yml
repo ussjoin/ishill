@@ -6,7 +6,7 @@ default:
 
 stages:
   - build
-  # - deploy
+  - deploy
 
 build-job:
   stage: build
@@ -18,9 +18,9 @@ build-job:
     - dpkg -i hugo.deb
     - rm hugo.deb
     - npm install -g @vivliostyle/cli # https://github.com/vivliostyle/vivliostyle-cli?tab=readme-ov-file
+    - npm install -g sass
     - "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-    - snap install dart-sass
-    - cd exampleSite && hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+    - cd exampleSite && hugo --gc --minify --baseURL "$CI_PAGES_URL/"
     - cd public && bash ./zineify.sh
 
   artifacts:
@@ -28,10 +28,13 @@ build-job:
       - exampleSite/public
     expire_in: 1 week
 
-# deploy-job:
-#   stage: deploy
-#   script:
-#     - echo "Deploying to Staging"
-#     - scp bin/hello remoteuser@remotehost:/remote/directory
-#   rules:
-#     - if: $CI_COMMIT_BRANCH == 'staging'
+pages:
+  stage: deploy
+  environment: production
+  script:
+    - echo "The site will be deployed to $CI_PAGES_URL"
+  artifacts:
+    paths:
+      - exampleSite/public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
