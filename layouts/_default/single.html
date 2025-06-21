@@ -2,13 +2,15 @@
 
 {{- partial "titlepage.html" . -}}
 
-<div class="altformats">
-    Alternate formats:
-    <ul>
-        <li><a href="./{{- .Title | urlize -}}.view.pdf">PDF (Reading)</a></li>
-        <li><a href="./{{- .Title | urlize -}}.zine.pdf">PDF (Imposed for printing, Letter Size Paper)</a></li>
-    </ul>
-</div>
+{{- if in .Site.Params.mainSections .Type -}}
+    <div class="altformats">
+        Alternate formats:
+        <ul>
+            <li><a href="./{{- .Title | urlize -}}.view.pdf">PDF (Reading)</a></li>
+            <li><a href="./{{- .Title | urlize -}}.zine.pdf">PDF (Imposed for printing, Letter Size Paper)</a></li>
+        </ul>
+    </div>
+{{- end -}}
 
 <div class="introduction">
     {{ .Content }}

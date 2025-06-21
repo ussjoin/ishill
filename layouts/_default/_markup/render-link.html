@@ -1,4 +1,8 @@
-{{- $counter := .Page.Store.Get "footnote_counter" -}}
+{{- $counter := default 0 (.Page.Store.Get "footnote_counter") -}}
+{{- if not (.Page.Store.Get "footnotes") -}}
+    {{ .Page.Store.Set "footnotes" slice }}
+{{- end -}}     
+
 {{- $counter = add $counter 1 -}}
 {{- .Page.Store.Add "footnotes" (dict "identifier" (printf "%s-%s" .Page.File (string $counter)) "reference" .Destination) -}}
 <span class="printonly-link">{{- .Text -}} <a href="#{{- .Page.File -}}-{{- $counter -}}">[{{- $counter -}}]</a></span><span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
