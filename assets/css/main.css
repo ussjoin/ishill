@@ -17,8 +17,7 @@ html {
     font-size: x-large;
     line-height: 1.6em;
 }
-p {
-    font-family: 'Fira Sans', sans-serif;
+p, ul, ol {
     font-size: large;
     line-height: 1.5em;
 }
