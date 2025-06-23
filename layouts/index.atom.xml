@@ -21,11 +21,14 @@
   <title>{{ .Site.Title }}</title>
   <updated>{{ now.Format $dateFormatAtomFeed | safeHTML }}</updated>
   {{ range $pages }}
-    {{- $thetype := "leaflet" -}}
+    {{- $thetype := "leaflets" -}}
     {{- $thetypename := "Leaflet" -}}
     {{- if eq .Type "monographs" -}}
         {{- $thetype = "monograph" -}}
         {{- $thetypename = "Monograph" -}}
+    {{- else if eq .Type "imprints"}}
+      {{- $thetype = "imprint" -}}
+      {{- $thetypename = "Imprint" -}}
     {{- end -}}
     <entry>
         <author>
@@ -34,6 +37,8 @@
                 {{ with index (.Resources.ByType "page") 0 }}{{ .Params.author }}{{end}}
             {{ else if eq $thetype "leaflet" }}
                 Curated by {{ .Params.author }}
+            {{ else if eq $thetype "imprint" }}
+                By {{ .Params.author }}
             {{ end }}
             </name>
         </author>
@@ -41,6 +46,8 @@
         <link rel="alternate" type="application/pdf" href="{{ absURL .Path }}/{{- .Title | urlize -}}.zine.pdf"/>
         <title>
             {{- if eq $thetype "leaflet" -}}
+                {{ .Page.Title }}
+            {{- else if eq $thetype "imprint" -}}
                 {{ .Page.Title }}
             {{- else -}}
                 {{ with index (.Resources.ByType "page") 0 }}{{ .Page.Title }}{{end}}

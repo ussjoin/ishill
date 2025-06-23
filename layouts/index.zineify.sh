@@ -5,6 +5,8 @@ set -euxo pipefail
 
 vivliostyle build
 {{ range $pages }}
-    pdfimpose saddle -f letter -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view.pdf'
+    {{- if ne "imprints" .Type -}}
+        pdfimpose saddle -f letter -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view.pdf'
+    {{ end }}
 {{ end }}
 
