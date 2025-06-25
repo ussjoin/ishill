@@ -194,8 +194,6 @@ footer {
 
 
 hr {
-  border: 0;
-  border-top: 3px dotted var(--bordercl);
   margin: 1em 0;
 }
 
