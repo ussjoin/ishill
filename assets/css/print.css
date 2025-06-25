@@ -117,6 +117,17 @@ header {
     display: inline;
 }
 
+.original_url_web {
+  display: none;
+}
+
+.original_url_print {
+  display: block;
+  font-size: x-small;
+  line-height: 1.2em;
+  margin-top: 0.5em;
+}
+
 .altformats {
     display: none;
 }
@@ -137,6 +148,7 @@ header {
 
 footer {
     break-before: left;
+    page: last_page;
 }
 
 
@@ -174,10 +186,14 @@ footer {
         margin-bottom: 0.25in;
         content: '';
     }
+}
 
-    /* @bottom-center {
-        content: element(publisher);
-    } */
+@page last_page {
+    @bottom-left {
+        font-size: x-small;
+        margin-bottom: 0.25in;
+        content: '';
+    }
 }
 
 article {

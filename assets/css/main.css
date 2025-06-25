@@ -316,6 +316,23 @@ article .title {
   margin-bottom: 1em;
 }
 
+.title a {
+  border-bottom: 0;
+}
+
+.original_url_web {
+  font-size: small;
+  margin-top: -0.5em;
+}
+
+.original_url_web a {
+  border-bottom: 0;
+}
+
+.original_url_print {
+  display: none;
+}
+
 .site-description {
 display: flex;
 justify-content: space-between;

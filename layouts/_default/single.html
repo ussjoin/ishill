@@ -26,7 +26,7 @@
     
     <article class="article">
         <a id="{{- .File -}}" href="#{{- .File -}}"></a>
-        <h2 class="title">{{ .Title }}</h2>
+        <h2 class="title"><a href="#{{- .File -}}">{{ .Title }}</a></h2>
         <address class="meta">
             {{ if .Params.author_url }}
                 <a class="author" rel="author" href="{{- .Params.author_url -}}">
@@ -37,6 +37,10 @@
             {{- end -}}
             <time datetime="{{ dateFormat " 2006-01-02" .Params.original_date }}">{{ dateFormat ":date_medium"
                 .Params.original_date }}</time>
+            {{- if .Params.original_url -}}
+                <div class="original_url_web"><a href="{{- .Params.original_url -}}">Originally Published</a></div>
+                <div class="original_url_print">Originally published: {{ .Params.original_url }}</div>
+            {{- end -}}
         </address>
 
         {{ if isset .Params "tldr" }}
