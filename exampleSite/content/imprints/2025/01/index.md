@@ -3,6 +3,8 @@ date = '2025-05-01'
 draft = false
 title = 'An Example Imprint'
 author = 'Crimethinc'
+summary = 'Wallpaper in cities; how does it work, exactly?'
+
 [build]
   render = 'always'
 [[cascade]]
