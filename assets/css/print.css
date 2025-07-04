@@ -27,7 +27,7 @@ header {
 .titlepage-print-container {
     display:table;
     text-align: center;
-    height: 8in;
+    height: 7.75in;
     
     break-after: page;
     font-size: 2rem;
