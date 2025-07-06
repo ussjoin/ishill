@@ -7,6 +7,11 @@ p {
     line-height: 1em;
 }
 
+ul {
+    font-size: medium;
+    line-height: 1em;
+}
+
 a {
     color: #050505;
     border-bottom: none;
@@ -134,6 +139,11 @@ header {
 
 .printonly-footnotes {
     display: block;
+    font-size: x-small;
+    line-height: 0.8rem;
+}
+
+.printonly-footnotes > ol {
     font-size: x-small;
     line-height: 0.8rem;
 }
