@@ -2,6 +2,7 @@
 /** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
 
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $pages := $pages | intersect (where .Site.RegularPages "Type" "ne" "imprints") }}
 
 const vivliostyleConfig = [
     {{ range $pages }}
