@@ -7,4 +7,4 @@
 {{- .Page.Store.Add "footnotes" (dict "identifier" (printf "%s-%s" .Page.File (string $counter)) "reference" .Destination) -}}
 <span class="printonly-link">{{- .Text -}} <a href="#{{- .Page.File -}}-{{- $counter -}}">[{{- $counter -}}]</a></span><span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
 {{- /* chomp trailing newline */ -}}
-{{- $.Page.Store.Set "footnote_counter" $counter -}}
+{{- .Page.Store.Set "footnote_counter" $counter -}}
