@@ -54,4 +54,14 @@
 
 	<link rel="alternate" type="application/atom+xml" href="/index.xml" />
 
+	{{- if .Params.special_font_size -}}
+	<style>
+		@media print {
+			p, ul, ol {
+				font-size: {{- .Params.special_font_size -}};
+			}
+		}
+	</style>
+	{{- end -}}
+
 </head>
