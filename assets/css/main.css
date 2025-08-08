@@ -14,11 +14,7 @@
 html {
     color: #232333;
     font-family: 'Fira Sans', sans-serif;
-    font-size: x-large;
-    line-height: 1.6em;
-}
-p, ul, ol {
-    font-size: large;
+    font-size: medium;
     line-height: 1.5em;
 }
 

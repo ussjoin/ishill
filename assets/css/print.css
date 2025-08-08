@@ -1,13 +1,4 @@
-html {
-    font-size: large;
-}
-
-p {
-    font-size: medium;
-    line-height: 1em;
-}
-
-ul {
+html, p, ul {
     font-size: medium;
     line-height: 1em;
 }
