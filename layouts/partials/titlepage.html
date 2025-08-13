@@ -7,7 +7,11 @@
 
 <div class="titlepage-print"><div class="titlepage-print-container">
     <div class="titlepage-publisher"><div class="movingbox">
-        {{ .Site.Title }} presents <div class="publisher-rule"><hr></div>
+        {{- if .Params.special_font_size -}}
+            {{ .Params.special_presenter }} <div class="publisher-rule"><hr></div>
+        {{- else -}}
+            {{ .Site.Title }} presents <div class="publisher-rule"><hr></div>
+        {{- end -}}
     </div></div>
     <div class="titlepage-title"><div class="movingbox">
         {{- if eq $thetype "leaflet" -}}
