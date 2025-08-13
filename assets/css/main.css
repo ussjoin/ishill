@@ -96,7 +96,7 @@ address>time::before {
 
 /* Posts */
 article .title {
-    margin-bottom: 0em;
+    margin-bottom: 0.5em;
 }
 
 h1,
@@ -308,9 +308,6 @@ time {
 }
 
 /* Posts */
-article .title {
-  margin-bottom: 1em;
-}
 
 .title a {
   border-bottom: 0;
