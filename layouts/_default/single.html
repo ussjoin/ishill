@@ -15,7 +15,9 @@
 {{- end -}}
 
 <div class="introduction">
-    {{ .Content }}
+    <div class="introduction-container">
+        {{ .Content }}
+    </div>
 </div>
 
 {{- range .Resources.ByType "page" -}}

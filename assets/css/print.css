@@ -157,6 +157,13 @@ footer {
     padding-top: 6in;
 }
 
+.introduction {
+    height: 100%;
+}
+
+.introduction-container {
+    padding-top: 2em;
+}
 
 
 /* Main stuff */
