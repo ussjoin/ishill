@@ -1,14 +1,10 @@
 @font-face {
     font-family: "Fira Sans";
     font-display: swap;
-    src: url('../fonts/FiraSans-Regular.eot');
-    /* IE9 Compat Modes */
-    src: url('../fonts/FiraSans-Regular?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('../fonts/FiraSans-Regular.woff') format('woff'),
-    /* Modern Browsers */
-    url('../fonts/FiraSans-Regular.ttf') format('truetype'),
-    url('../fonts/FiraSans-Regular.woff2') format('woff2'),
+    src: 
+      url('../fonts/FiraSans-Regular.eot'),
+      url('../fonts/FiraSans-Regular.ttf') format('truetype'),
+      url('../fonts/FiraSans-Regular.woff2') format('woff2');
 }
 
 html {
@@ -34,13 +30,6 @@ body {
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-::selection {
-  background: var(--maincolor);
-  color: #fff;
-}
-
-
 
 .toc {
     background-color: #ececec;
