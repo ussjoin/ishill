@@ -18,8 +18,8 @@ echo $! > PID
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 
 {{ range $pages }}
-    weasyprint  http://localhost:8000{{ .Path }}/  .{{ .Path }}/{{- .Title | urlize -}}.view.pdf
     {{ if ne "imprints" .Type }}
+        weasyprint  http://localhost:8000{{ .Path }}/  .{{ .Path }}/{{- .Title | urlize -}}.view.pdf
         pdfimpose saddle -f letter -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view.pdf'
     {{ end }}
 {{ end }}
