@@ -3,16 +3,13 @@ set -euxo pipefail
 
 function cleanup()
 {
-    # Terminates http.server
-    kill $(cat PID)
-    rm PID
+    # Terminates nginx
+    nginx -s quit
 }
 
 trap cleanup EXIT
 
-python3 -m http.server & # starts on port 8000
-# $! == PID of last background process
-echo $! > PID
+nginx -c nginx.conf
 
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 
