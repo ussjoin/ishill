@@ -52,7 +52,7 @@
             <nav id="TableOfContents">
                 <ol>
                     {{- range .Resources.ByType "page" -}}
-                        <li><a href="#{{- .File -}}">{{ .Title }}</a> — {{ .Params.author }}</li>
+                        <li><a href="#{{- .File -}}">{{ .Title }}</a>{{ if .Params.author }} — {{ .Params.author }}{{ end }}</li>
                     {{- end -}}
                 </ol>
             </nav>

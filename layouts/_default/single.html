@@ -37,8 +37,10 @@
             {{- if .Params.author_url -}}
                 </a>
             {{- end -}}
+            {{- if .Params.original_date -}}
             <time datetime="{{ dateFormat " 2006-01-02" .Params.original_date }}">{{ dateFormat ":date_medium"
                 .Params.original_date }}</time>
+            {{- end -}}
             {{- if .Params.original_url -}}
                 <div class="original_url_web"><a href="{{- .Params.original_url -}}">Originally Published</a></div>
                 <div class="original_url_print">Originally published: {{ .Params.original_url }}</div>
