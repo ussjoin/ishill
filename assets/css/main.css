@@ -7,7 +7,7 @@
       url('../fonts/FiraSans-Regular.woff2') format('woff2');
 }
 
-html {
+html, p, ul {
     color: #232333;
     font-family: 'Fira Sans', sans-serif;
     font-size: medium;
@@ -105,7 +105,17 @@ h2 {
 }
 
 h3 {
-    font-size: 1em;
+    font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: bold;
 }
 
 /* Footer */

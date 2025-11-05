@@ -40,25 +40,17 @@ header {
     text-align: center;
 }
 
-/*
-    Heights:
-        Publisher: 10%
-        Title: 30%;
-        Author: 15%;
-        Date: 15%;
-        TOC (optional): 30%;
-*/
-
 .titlepage-publisher {
     font-size: 1.3rem;
     display: table-row;
     height: 5%;
 }
+
 .titlepage-title {
     font-size: 2rem;
     line-height: 2rem;
     display: table-row;
-    height: 35%;
+    height: 25%;
     border-bottom: 3px double grey;
 }
 
@@ -83,7 +75,6 @@ header {
     margin-left: auto;
     margin-right: auto;
     max-width: 70%;
-    font-size: large;
     line-height: 1.5em;
     height: 30%;
 }
