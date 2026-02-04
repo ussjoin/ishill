@@ -272,7 +272,7 @@ header .main {
 }
 
 .meta {
-  color: #666;
+  color: #444;
   letter-spacing: -0.5px;
 }
 
@@ -309,7 +309,7 @@ header .main {
 }
 
 time {
-  color: grey;
+  color: #444;
 }
 
 /* Posts */
