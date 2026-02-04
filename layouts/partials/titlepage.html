@@ -35,10 +35,10 @@
             {{ .Params.author}}
         {{ end }}
     </div></div>
-    <div datetime="" class="titlepage-publicationdate-published"><div class="movingbox">
+    <div class="titlepage-publicationdate-published"><div class="movingbox">
         And Published
     </div></div>
-    <div datetime="" class="titlepage-publicationdate"><div class="movingbox">
+    <div class="titlepage-publicationdate"><div class="movingbox">
         {{- if eq $thetype "leaflet" -}}
             {{ dateFormat ":date_medium" .Date }}
         {{- else -}}
