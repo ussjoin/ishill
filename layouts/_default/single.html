@@ -62,7 +62,7 @@
                 Footnotes:
                 <ol>
                     {{- range .Page.Store.Get "footnotes" -}}
-                    <li><a id="{{- .identifier -}}"><a href="{{ .reference | safeURL }}">{{- .reference -}}</a></li>
+                    <li><a id="{{- .identifier -}}" href="{{ .reference | safeURL }}">{{- .reference -}}</a></li>
                     {{- end -}}
                 </ol>
             </div>
