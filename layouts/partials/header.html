@@ -5,30 +5,30 @@
 	{{- $siteTitle := ( .Site.Title ) -}}
 	{{- if .IsHome -}}
 	<title>{{ $siteTitle }} | Home </title>
-	<meta property="og:title" content="{{ $siteTitle }} | Home" />
+	<meta property="og:title" content="{{ $siteTitle }} | Home">
 	{{- else -}}
 	<title>{{ $title }} - {{ $siteTitle }}</title>
-	<meta property="og:title" content="{{ $title }}" />
+	<meta property="og:title" content="{{ $title }}">
 	{{- end -}}
 
-	<meta property="og:site_name" content="{{ $siteTitle }}"/>
+	<meta property="og:site_name" content="{{ $siteTitle }}">
 
 	{{- if isset .Site.Params "favicon" -}}
-	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
+	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }}>
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
-	<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+	<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 	{{ with .OutputFormats.Get "rss" -}}
-	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{ end -}}
 
 	{{ $style := resources.Get "css/main.css" | fingerprint }}
-	<link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" />
+	<link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
 
 	{{ $style := resources.Get "css/print.css" | fingerprint }}
-	<link rel="stylesheet" type="text/css" media="print" href="{{ $style.RelPermalink }}" />
+	<link rel="stylesheet" type="text/css" media="print" href="{{ $style.RelPermalink }}">
 
 	<!-- Custom CSS style get applied last -->
 	{{- if isset .Site.Params "customcss" }}
@@ -47,7 +47,7 @@
 	{{- end }}
 	{{- end }}
 
-	<link rel="alternate" type="application/atom+xml" href="/index.xml" />
+	<link rel="alternate" type="application/atom+xml" href="/index.xml">
 
 	{{- if .Params.special_font_size -}}
 	<style>
