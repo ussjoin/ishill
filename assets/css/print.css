@@ -14,6 +14,10 @@ header {
     display: none;
 }
 
+.zinetitle-web {
+  display: none;
+}
+
 .titlepage-print {
     display: table;
     border: 3px solid grey;

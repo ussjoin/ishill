@@ -2,6 +2,8 @@
 
 {{- partial "titlepage.html" . -}}
 
+<h1 class="zinetitle-web">{{ .Title }}</h1>
+
 {{- if in .Site.Params.mainSections .Type -}}
     {{- if ne "imprints" .Type -}}
         <div class="altformats">
@@ -27,7 +29,6 @@
     {{ .Page.Store.Set "footnotes" slice }}
     
     <article class="article">
-        <a id="{{- .File -}}" href="#{{- .File -}}"></a>
         <h2 class="title"><a href="#{{- .File -}}">{{ .Title }}</a></h2>
         <address class="meta">
             {{ if .Params.author_url }}
