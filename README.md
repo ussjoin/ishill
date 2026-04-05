@@ -2,12 +2,17 @@
 
 This is a Hugo theme that lets you turn Markdown into impressed, double-side-printable, saddle-stiched (stapled in the middle) zines, while also still being a wey to publish the same content on the Web, for free.
 
-* Example site hosted on GitLab Pages: <https://ussjoin.gitlab.io/ishill-examplesite/>
+* Example site hosted on [GitLab Pages](https://docs.gitlab.com/user/project/pages/): <https://ussjoin.gitlab.io/ishill-examplesite/>
     * Example site repository on GitLab: <https://gitlab.com/ussjoin/ishill-examplesite>
-* Example site hosted on GitHub Pages: <https://ussjoin.github.io/ishill-examplesite/>
+    * Theme repository on GitLab: <https://gitlab.com/ussjoin/ishill>
+* Example site hosted on [GitHub Pages](https://docs.github.com/en/pages): <https://ussjoin.github.io/ishill-examplesite/>
     * Example site repository on GitHub: <https://github.com/ussjoin/ishill-examplesite>
-* Example site hosted on Autistici/Inventati: <https://www.autistici.org/ishill/>
-* Example site hosted on NearlyFreeSpeech.net: <https://ishillexamplesite.nfshost.com/>
+    * Theme repository on GitHub: <https://github.com/ussjoin/ishill>
+* Example site hosted on [Codeberg Pages](https://docs.codeberg.org/codeberg-pages/): <https://ussjoin.codeberg.page/ishill-examplesite/>
+    * Example site repository on Codeberg: <https://github.com/ussjoin/ishill-examplesite>
+    * Theme repository on Codeberg: <https://codeberg.org/ussjoin/ishill>
+* Example site hosted on [Autistici/Inventati](https://www.autistici.org/): <https://www.autistici.org/ishill/>
+* Example site hosted on [NearlyFreeSpeech.net](https://www.nearlyfreespeech.net/): <https://ishillexamplesite.nfshost.com/>
 
 
 This README is a very unpolished sketch of what it needs to be. To sum up, I need to write a README that's short for people who know what Hugo and GitLab/GitHub Pages are, and why this is useful. Then I need to write one that starts with "you know how to use basic computer stuff, and you want to make zines that are mostly writing and less design." Both are important user cases to me, and both are captured by Ishill.
