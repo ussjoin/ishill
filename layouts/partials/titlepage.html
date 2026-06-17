@@ -1,20 +1,23 @@
 {{- $thetype := "leaflet" -}}
 {{- $thetypename := "Leaflet" -}}
-{{- if eq .Type "monographs" -}}
+{{- if .Params.special_type -}}
+    {{- $thetypename = .Params.special_type -}}
+    {{- $thetype = "monograph" -}}
+{{- else if eq .Type "monographs" -}}
     {{- $thetype = "monograph" -}}
     {{- $thetypename = "Monograph" -}}
 {{- end -}}
 
 <div class="titlepage-print"><div class="titlepage-print-container">
     <div class="titlepage-publisher"><div class="movingbox">
-        {{- if .Params.special_font_size -}}
+        {{- if .Params.special_presenter -}}
             {{ .Params.special_presenter }} <div class="publisher-rule"><hr></div>
         {{- else -}}
             {{ .Site.Title }} presents <div class="publisher-rule"><hr></div>
         {{- end -}}
     </div></div>
     <div class="titlepage-title"><div class="movingbox">
-        {{- if eq $thetype "leaflet" -}}
+        {{- if .Page.Title -}}
             {{ .Page.Title }}
         {{- else -}}
         {{ with index (.Resources.ByType "page") 0 }}{{ .Page.Title }}{{end}}
@@ -29,9 +32,9 @@
         {{ end }}
     </div></div>
     <div class="titlepage-author"><div class="movingbox">
-        {{ if eq $thetype "monograph" }}
+        {{ if and (eq $thetype "monograph") (not .Params.author) }}
             {{ with index (.Resources.ByType "page") 0 }}{{ .Params.author }}{{end}}
-        {{ else if eq $thetype "leaflet" }}
+        {{ else }}
             {{ .Params.author}}
         {{ end }}
     </div></div>
@@ -39,7 +42,7 @@
         And Published
     </div></div>
     <div class="titlepage-publicationdate"><div class="movingbox">
-        {{- if eq $thetype "leaflet" -}}
+        {{- if .Date -}}
             {{ dateFormat ":date_medium" .Date }}
         {{- else -}}
             {{ with index (.Resources.ByType "page") 0 }}{{ dateFormat ":date_medium" .Params.original_date }}{{end}}

@@ -22,13 +22,14 @@ header {
     display: table;
     border: 3px solid grey;
     border-collapse: collapse;
+    width: 100%;
 }
 
 .titlepage-print-container {
     display:table;
     text-align: center;
     height: 7.75in;
-    
+    width: 100%;
     break-after: page;
     font-size: 2rem;
     font-weight: bold;
