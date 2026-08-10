@@ -142,6 +142,17 @@ footer {
     margin-right: auto;
     text-align: justify;
 }
+
+.footer-info > .gitinfo {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.footer-info > .zipfile {
+  margin-top: 1em;
+  text-align: center;
+}
+
 .soc { /*XXX DO I USE THIS? XXX*/
   display: flex;
   align-items: center;

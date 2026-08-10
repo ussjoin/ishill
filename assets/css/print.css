@@ -153,6 +153,10 @@ footer {
     padding-top: 6in;
 }
 
+.footer-info > .zipfile {
+  display:none;
+}
+
 .introduction {
     height: 100%;
 }

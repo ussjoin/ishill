@@ -4,15 +4,15 @@ set -euxo pipefail
 function cleanup()
 {
     # Terminates http.server
-    kill $(cat PID)
-    rm PID
+    kill $(cat .PID)
+    rm .PID
 }
 
 trap cleanup EXIT
 
 python3 -m http.server & # starts on port 8000
 # $! == PID of last background process
-echo $! > PID
+echo $! > .PID
 
 
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
@@ -24,4 +24,6 @@ echo $! > PID
     {{ end }}
 {{ end }}
 
-
+{{- if .Site.Params.enableZipFile -}}
+    zip -r {{ .Site.Title | urlize }}-archive.zip *
+{{- end -}}
