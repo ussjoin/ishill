@@ -11,8 +11,8 @@
       <div class="gitinfo"> Document revision: {{ .GitInfo.AbbreviatedHash }}.</div>
     {{- end -}}
 
-    {{- if .Site.Params.enableZipFile -}}
-      <div class="zipfile"><a href="/{{- .Site.Title | urlize -}}-archive.zip">Site Archive</a></div>
+    {{- if .Site.Params.enableArchive -}}
+      <div class="archive"><a href="/{{- .Site.Title | urlize -}}-archive.zip">Site Archive</a></div>
     {{- end -}}
   </div>
 </footer>

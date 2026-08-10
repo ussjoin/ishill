@@ -24,6 +24,6 @@ echo $! > .PID
     {{ end }}
 {{ end }}
 
-{{- if .Site.Params.enableZipFile -}}
+{{- if .Site.Params.enableArchive -}}
     zip -r {{ .Site.Title | urlize }}-archive.zip *
 {{- end -}}
