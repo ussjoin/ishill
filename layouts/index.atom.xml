@@ -12,10 +12,10 @@
   <generator uri="https://gohugo.io">Hugo {{ .Site.Hugo.Version }}</generator>
   <id>{{ .Permalink }}</id>
   {{ with .OutputFormats.Get "atom" }}
-  {{ printf `<link rel="self" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{ printf `<link rel="self" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.Language.Locale | safeHTML }}
   {{ end }}
   {{ range .AlternativeOutputFormats }}
-  {{ printf `<link rel="alternate" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{ printf `<link rel="alternate" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.Language.Locale | safeHTML }}
   {{ end }}
   {{ with .Site.Params.Description }}<subtitle>{{ .  }}</subtitle>{{ end }}
   <title>{{ .Site.Title }}</title>
