@@ -12,7 +12,8 @@
     {{- end -}}
 
     {{- if .Site.Params.enableArchive -}}
-      <div class="archive"><a href="/{{- .Site.Title | urlize -}}-archive.zip">Site Archive</a></div>
+      {{- $filename := printf "%s-archive.zip" (.Site.Title | urlize) -}}
+      <div class="archive"><a href="{{ relURL $filename }}">Site Archive</a></div>
     {{- end -}}
   </div>
 </footer>
