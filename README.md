@@ -13,7 +13,6 @@ This is the theme repository. Most Hugo themes have an example site that shows y
     Example site hosted on Codeberg Pages: https://ussjoin.codeberg.page/ishill-examplesite/
         Example site repository on Codeberg: https://github.com/ussjoin/ishill-examplesite
         Theme repository on Codeberg: https://codeberg.org/ussjoin/ishill
-    Example site hosted on Autistici/Inventati: https://www.autistici.org/ishill/
     Example site hosted on NearlyFreeSpeech.net: https://ishillexamplesite.nfshost.com/
 
 
