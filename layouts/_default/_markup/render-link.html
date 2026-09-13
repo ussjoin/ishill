@@ -1,14 +1,22 @@
 {{- $counter := default 0 (.Page.Store.Get "footnote_counter") -}}
 {{- if not (.Page.Store.Get "footnotes") -}}
     {{ .Page.Store.Set "footnotes" slice }}
-{{- end -}}     
+{{- end -}}
 
-{{- $counter = add $counter 1 -}}
-{{- .Page.Store.Add "footnotes" (dict "identifier" (printf "%s-%s" .Page.File (string $counter)) "reference" .Destination) -}}
-<span class="printonly-link">
-    {{- if and (ne .Text "source") (ne .Text "[source]") -}}
-        {{- .Text -}}
-    {{- end -}}
-<a href="#{{- .Page.File -}}-{{- $counter -}}"> [{{- $counter -}}]</a></span><span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
-{{- /* chomp trailing newline */ -}}
-{{- .Page.Store.Set "footnote_counter" $counter -}}
+{{- if eq .Text .Destination -}}
+    <span class="printonly-link">{{- .Destination -}}</span>
+    <span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
+{{- else -}}
+
+    {{- $counter = add $counter 1 -}}
+    {{- .Page.Store.Add "footnotes" (dict "identifier" (printf "%s-%s" .Page.File (string $counter)) "reference" .Destination) -}}
+    <span class="printonly-link">
+        {{- if and (ne .Text "source") (ne .Text "[source]") -}}
+            {{- .Text -}}
+        {{- end -}}
+    <a href="#{{- .Page.File -}}-{{- $counter -}}"> [{{- $counter -}}]</a></span>
+
+    <span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
+    {{- /* chomp trailing newline */ -}}
+    {{- .Page.Store.Set "footnote_counter" $counter -}}
+{{- end -}}
