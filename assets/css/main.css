@@ -1,26 +1,41 @@
 @font-face {
-    font-family: "Fira Sans";
-    font-display: swap;
-    src: 
-      url('../fonts/FiraSans-Regular.eot'),
-      url('../fonts/FiraSans-Regular.ttf') format('truetype'),
-      url('../fonts/FiraSans-Regular.woff2') format('woff2');
+  font-family: "Fira Sans";
+  font-display: swap;
+  src:
+    url('../fonts/FiraSans-Regular.eot'),
+    url('../fonts/FiraSans-Regular.ttf') format('truetype'),
+    url('../fonts/FiraSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Fira Mono";
+  font-display: swap;
+  src:
+    url('../fonts/FiraMono-Regular.ttf')  format('truetype'),
+    url('../fonts/FiraMono-Medium.ttf')  format('truetype'),
+    url('../fonts/FiraMono-Bold.ttf')  format('truetype');
 }
 
 html, p, ul {
-    color: #232333;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: medium;
-    line-height: 1.5em;
+  color: #232333;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: medium;
+  line-height: 1.5em;
+}
+
+code {
+  font-family: 'Fira Mono', monospace;
+  font-size: medium;
+  line-height: 1.5em;
 }
 
 /* Markdown */
 :root {
-    --maincolor: darkgrey;
-    --calloutcolor: grey;
-    --hovercolor: lightgrey;
-    --darkMaincolor: lightgrey;
-    --bordercl: lightgrey;
+  --maincolor: darkgrey;
+  --calloutcolor: grey;
+  --hovercolor: lightgrey;
+  --darkMaincolor: lightgrey;
+  --bordercl: lightgrey;
 }
 
 body {
