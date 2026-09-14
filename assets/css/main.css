@@ -20,6 +20,7 @@ html, p, ul {
     --calloutcolor: grey;
     --hovercolor: lightgrey;
     --darkMaincolor: lightgrey;
+    --bordercl: lightgrey;
 }
 
 body {
