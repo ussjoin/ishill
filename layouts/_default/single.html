@@ -2,6 +2,10 @@
 
 {{- partial "titlepage.html" . -}}
 
+{{- if not (.Page.Store.Get "footnotes") -}}
+    {{ .Page.Store.Set "footnotes" slice }}
+{{- end -}}
+
 <h1 class="zinetitle-web">{{ .Title }}</h1>
 
 {{- if in .Site.Params.mainSections .Type -}}
@@ -20,6 +24,16 @@
     <div class="introduction-container">
         {{ .Content }}
     </div>
+    {{- if gt (.Page.Store.Get "footnotes" | len) 0 -}}
+        <div class="printonly-footnotes">
+            Footnotes:
+            <ol>
+                {{- range .Page.Store.Get "footnotes" -}}
+                <li><a id="{{- .identifier -}}" href="{{ .reference | safeURL }}">{{- .reference -}}</a></li>
+                {{- end -}}
+            </ol>
+        </div>
+    {{- end -}}
 </div>
 
 {{- range .Resources.ByType "page" -}}
