@@ -25,5 +25,5 @@ echo $! > .PID
 {{ end }}
 
 {{- if .Site.Params.enableArchive -}}
-    zip -r {{ .Site.Title | urlize }}-archive.zip *
+    ls | grep -v zineify.sh | zip -r {{ .Site.Title | urlize }}-archive.zip -@
 {{- end -}}
