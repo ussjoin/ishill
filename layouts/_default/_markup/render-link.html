@@ -3,9 +3,8 @@
     {{ .Page.Store.Set "footnotes" slice }}
 {{- end -}}
 
-{{- if eq .Text .Destination -}}
-    <span class="printonly-link">{{- .Destination -}}</span>
-    <span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
+{{- if or (eq .Text .Destination) (eq (printf "mailto:%s" .Text) .Destination) -}}
+    <span class="printonly-link">{{- .Text -}}</span><span class="web-link"><a href="{{- .Destination | safeURL -}}" title="{{- .Title -}}"> {{- .Text -}}</a></span>
 {{- else -}}
     {{- $counter = add $counter 1 -}}
     {{- .Page.Store.Add "footnotes" (dict "identifier" (printf "%s-%s" .Page.File (string $counter)) "reference" .Destination) -}}
