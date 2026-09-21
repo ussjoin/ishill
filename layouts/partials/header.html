@@ -36,15 +36,6 @@
 		<link rel="stylesheet" type="text/css" href="{{ $customstyle.RelPermalink }}">
 		{{ end }}
 	{{- end -}}
-	{{- range .Site.Params.customJS }}
-	{{- if or (hasPrefix . "http://") (hasPrefix . "https://") }}
-	<script src="{{ . }}"></script>
-	{{- else if (hasPrefix . "<script")}}
-    {{ .| safeHTML }}
-	{{- else }}
-	<script src="{{ absURL . }}"></script>
-	{{- end }}
-	{{- end }}
 
 	{{- if .Params.special_font_size -}}
 	<style>
