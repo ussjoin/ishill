@@ -55,10 +55,7 @@
         </title>
         <published>{{ .Date.Format $dateFormatAtomFeed | safeHTML }}</published>
         <updated>{{ .Lastmod.Format $dateFormatAtomFeed | safeHTML }}</updated>
-        {{ with .Description }}<summary type="text">{{ . }}</summary>{{ end }}
-        <content type="html" xml:base="{{ .Site.BaseURL }}" xml:lang="en">
-        {{ printf "<![CDATA[%s]]>" .Content | safeHTML }}
-        </content>
+        {{ with .Summary }}<summary type="text">{{ . }}</summary>{{ end }}
     </entry>
   {{ end }}
 </feed>
