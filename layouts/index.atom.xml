@@ -55,7 +55,7 @@
         </title>
         <published>{{ .Date.Format $dateFormatAtomFeed | safeHTML }}</published>
         <updated>{{ .Lastmod.Format $dateFormatAtomFeed | safeHTML }}</updated>
-        {{ with .Summary }}<summary type="text">{{ . }}</summary>{{ end }}
+        {{ with .Summary }}<summary type="text">{{ . | safeHTML }}</summary>{{ end }}
     </entry>
   {{ end }}
 </feed>
