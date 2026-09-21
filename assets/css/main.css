@@ -114,6 +114,15 @@ h6 {
     margin-top: 1em;
 }
 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    text-decoration:none;
+}
+
 h1 {
   font-size: 2em;
   margin-bottom: 0.5em;

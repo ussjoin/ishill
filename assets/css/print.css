@@ -11,7 +11,7 @@ code {
 
 a {
     color: #050505;
-    border-bottom: none;
+    text-decoration: none;
 }
 
 /* Stuff for the front and endmatter */
