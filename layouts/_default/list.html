@@ -1,9 +1,5 @@
 {{ define "main" }}
-{{ if isset .Data "Term" }}
-<h1>Entries tagged - "{{ .Data.Term }}"</h1>
-{{ else }}
-<h1 class="page-title">All articles</h1>
-{{ end }}
+<h1 class="page-title">All {{ .Type | inflect.Pluralize | inflect.Humanize }}</h1>
 
 <ul class="posts">
 	{{- range .Data.Pages -}}
