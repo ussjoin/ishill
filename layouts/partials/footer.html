@@ -15,6 +15,7 @@
       {{- $filename := printf "%s-archive.zip" (.Site.Title | urlize) -}}
       <div class="archive"><a href="{{ relURL $filename }}">Site Archive</a></div>
     {{- end -}}
+    <div class="rss"><a href="{{- relURL "index.xml" -}}">RSS/Atom</a></div>
   </div>
 </footer>
 

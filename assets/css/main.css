@@ -35,7 +35,7 @@ code {
   --calloutcolor: grey;
   --hovercolor: lightgrey;
   --darkMaincolor: lightgrey;
-  --bordercl: lightgrey;
+  --bordercl: blue;
 }
 
 body {
@@ -169,6 +169,19 @@ footer {
   text-align: center;
 }
 
+.footer-info > .archive a {
+  text-decoration: none;
+}
+
+.footer-info > .rss {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.footer-info > .rss a {
+  text-decoration: none;
+}
+
 .soc { /*XXX DO I USE THIS? XXX*/
   display: flex;
   align-items: center;
@@ -233,9 +246,7 @@ blockquote {
 }
 
 a {
-  border-bottom: 3px solid var(--maincolor);
   color: inherit;
-  text-decoration: none;
 }
 a:hover {
     background-color: var(--hovercolor);

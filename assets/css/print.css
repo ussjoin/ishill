@@ -163,6 +163,10 @@ footer {
   display:none;
 }
 
+.footer-info > .rss {
+  display:none;
+}
+
 .introduction {
     height: 100%;
 }
