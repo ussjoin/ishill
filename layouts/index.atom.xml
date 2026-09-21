@@ -21,7 +21,7 @@
   <title>{{ .Site.Title }}</title>
   <updated>{{ now.Format $dateFormatAtomFeed | safeHTML }}</updated>
   {{ range $pages }}
-    {{- $thetype := "leaflets" -}}
+    {{- $thetype := "leaflet" -}}
     {{- $thetypename := "Leaflet" -}}
     {{- if eq .Type "monographs" -}}
         {{- $thetype = "monograph" -}}
@@ -50,7 +50,7 @@
             {{- else if eq $thetype "imprint" -}}
                 {{ .Page.Title }}
             {{- else -}}
-                {{ with index (.Resources.ByType "page") 0 }}{{ .Page.Title }}{{end}}
+                {{ .Page.Title }}
             {{- end -}}
         </title>
         <published>{{ .Date.Format $dateFormatAtomFeed | safeHTML }}</published>
