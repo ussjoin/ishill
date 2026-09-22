@@ -8,7 +8,16 @@
     Inquiries and submissions may be sent to {{ .Site.Params.Submissions }}.
     {{ .Site.Title }} publishes with the Ishill Stack, built on <a href="https://gohugo.io">Hugo</a>. Want to be able simultaneously to publish to the web, in PDF, in zine format, …? Check out the free Ishill Stack at <a href="https://codeberg.org/ussjoin/ishill">https://codeberg.org/ussjoin/ishill</a>.
     {{- if .GitInfo -}}
-      <div class="gitinfo"> Document revision: {{ .GitInfo.AbbreviatedHash }}.</div>
+      {{- $the_date := .Lastmod.Format "2006-01-02-15-04-05" -}}
+      {{- $the_hash := .GitInfo.AbbreviatedHash -}}
+      {{- range (.Page.Resources.ByType "page") -}}
+        {{- $the_tmp_date := .Lastmod.Format "2006-01-02-15-04-05" -}}
+        {{- if gt $the_tmp_date $the_date -}}
+          {{- $the_date = $the_tmp_date -}}
+          {{- $the_hash = .GitInfo.AbbreviatedHash -}}
+        {{- end -}}
+      {{- end -}}
+      <div class="gitinfo"> Document revision: {{ $the_hash }}.</div>
     {{- end -}}
 
     {{- if .Site.Params.enableArchive -}}
