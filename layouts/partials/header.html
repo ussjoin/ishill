@@ -13,10 +13,6 @@
 
 	<meta property="og:site_name" content="{{ $siteTitle }}">
 
-	{{- if isset .Site.Params "favicon" -}}
-	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }}>
-	{{- end -}}
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 	<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
@@ -29,7 +25,7 @@
 	{{ $style := resources.Get "css/print.css" | fingerprint }}
 	<link rel="stylesheet" type="text/css" media="print" href="{{ $style.RelPermalink }}">
 
-	<!-- Custom CSS style get applied last -->
+	<!-- Custom CSS styles get applied last -->
 	{{- if isset .Site.Params "customcss" }}
 		{{ range .Site.Params.customCSS }}
 		{{ $customstyle := resources.Get . | fingerprint }}
@@ -46,5 +42,8 @@
 		}
 	</style>
 	{{- end -}}
+
+	<!-- Custom HTML head insert, to allow a favicon block; you should override this in your site -->
+	{{ partial "custom_head.html" . }}
 
 </head>
