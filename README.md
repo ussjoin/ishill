@@ -5,7 +5,7 @@ This is a Hugo theme that lets you turn Markdown into impressed, double-side-pri
 This is the theme repository. Most Hugo themes have an example site that shows you how to use them, and Ishill is no different. We currently have four example hosts to look at (the code's the same in every place), and three code repository hosts:
 
 * Example site hosted on [Codeberg Pages](https://docs.codeberg.org/codeberg-pages/): <https://ussjoin.codeberg.page/ishill-examplesite/>
-    * Example site repository on Codeberg: <https://github.com/ussjoin/ishill-examplesite>
+    * Example site repository on Codeberg: <https://codeberg.org/ussjoin/ishill-examplesite>
     * Theme repository on Codeberg: <https://codeberg.org/ussjoin/ishill>
 * Example site hosted on [GitLab Pages](https://docs.gitlab.com/user/project/pages/): <https://ussjoin.gitlab.io/ishill-examplesite/>
     * Example site repository on GitLab: <https://gitlab.com/ussjoin/ishill-examplesite>
