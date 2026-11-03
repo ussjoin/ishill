@@ -25,6 +25,11 @@
 	{{ $style := resources.Get "css/print.css" | fingerprint }}
 	<link rel="stylesheet" type="text/css" media="print" href="{{ $style.RelPermalink }}">
 
+	<!-- https://gohugo.io/functions/transform/tomath/ -->
+
+		{{ $style := resources.Get "css/katex-swap.css" | fingerprint }}
+		<link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+
 	<!-- Custom CSS styles get applied last -->
 	{{- if isset .Site.Params "customcss" }}
 		{{ range .Site.Params.customCSS }}
@@ -36,7 +41,7 @@
 	{{- if .Params.special_font_size -}}
 	<style>
 		@media print {
-			p, ul, ol {
+			html, p, ul, ol, li, code {
 				font-size: {{- .Params.special_font_size -}};
 			}
 		}

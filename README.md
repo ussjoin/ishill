@@ -18,3 +18,7 @@ This is the theme repository. Most Hugo themes have an example site that shows y
 Because this is a Theme That Makes Zines, the documentation is in the example site, as a zine. Click on any of the "example site" links above, and then click "Ishill Monograph" to get started.
 
 A request: if you start using this, send me an email (<ishill@ussjoin.com>) or an issue here on GitLab/GitHub. If you do, I'll probably link to you here in this README, or in another place. And I'll be fascinated to see what you come up with.
+
+# License
+
+[KaTeX](https://github.com/KaTeX/KaTeX) files are released under the MIT license.
