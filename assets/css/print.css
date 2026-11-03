@@ -1,6 +1,11 @@
-html, p, ul {
+html, p, ul, ol, li, code {
     font-size: medium;
     line-height: 1em;
+}
+
+li > p {
+    font-size: inherit;
+    line-height: inherit;
 }
 
 code {
