@@ -19,6 +19,10 @@ a {
     text-decoration: none;
 }
 
+.footnote-backref {
+    display: none;
+}
+
 /* Stuff for the front and endmatter */
 header {
     /* The normal clickable header and menu */
