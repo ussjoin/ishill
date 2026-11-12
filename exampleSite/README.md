@@ -1,1 +1,1 @@
-To facilitate making it easier to clone the example site get going, the Ishill example site has been moved to its own repository. Please see [the root README](/README.md) for details.
+To facilitate making it easier to clone the example site to get going, the Ishill example site has been moved to its own repository. Please see [the root README](/README.md) for details.
