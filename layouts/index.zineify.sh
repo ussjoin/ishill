@@ -17,13 +17,23 @@ echo $! > .PID
 
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 
+{{ $a4style := resources.Get "css/a4.css" | fingerprint }}
+{{ $letterstyle := resources.Get "css/letter.css" | fingerprint }}
+
 {{ range $pages }}
     {{ if ne "imprints" .Type }}
-        weasyprint  http://localhost:8000{{ .Path }}/  .{{ .Path }}/{{- .Title | urlize -}}.view.pdf
-        pdfimpose saddle -f letter -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view.pdf'
+        {{ if .Site.Params.output_letter }}
+        weasyprint  -s 'http://localhost:8000{{ $letterstyle.RelPermalink }}' --optimize-images --dpi 150 http://localhost:8000{{ .Path }}/  .{{ .Path }}/{{- .Title | urlize -}}.view-letter.pdf
+        pdfimpose saddle -f letter --imargin 1mm -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine-letter.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view-letter.pdf'
+        {{ end }}
+
+        {{ if .Site.Params.output_a4 }}
+        weasyprint  -s 'http://localhost:8000{{ $a4style.RelPermalink }}' --optimize-images --dpi 150 http://localhost:8000{{ .Path }}/  .{{ .Path }}/{{- .Title | urlize -}}.view-a4.pdf
+        pdfimpose saddle -f a4 --imargin 10mm -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine-a4.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view-a4.pdf'
+        {{ end }}
     {{ end }}
 {{ end }}
 
-{{- if .Site.Params.enableArchive -}}
+{{ if .Site.Params.enableArchive }}
     ls | grep -v zineify.sh | zip -r {{ .Site.Title | urlize }}-archive.zip -@
-{{- end -}}
+{{ end }}

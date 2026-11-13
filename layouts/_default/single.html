@@ -13,8 +13,14 @@
         <div class="altformats">
             Alternate formats:
             <ul>
-                <li><a href="./{{- .Title | urlize -}}.view.pdf">PDF (Reading)</a></li>
-                <li><a href="./{{- .Title | urlize -}}.zine.pdf">PDF (Imposed for printing, Letter Size Paper)</a></li>
+            {{- if .Site.Params.output_letter -}}
+                <li><a href="./{{- .Title | urlize -}}.view-letter.pdf">PDF (Reading, half-letter size)</a></li>
+                <li><a href="./{{- .Title | urlize -}}.zine-letter.pdf">PDF (Imposed for printing, letter size paper)</a></li>
+            {{- end -}}
+            {{- if .Site.Params.output_a4 -}}
+                <li><a href="./{{- .Title | urlize -}}.view-a4.pdf">PDF (Reading, half-A4 size)</a></li>
+                <li><a href="./{{- .Title | urlize -}}.zine-a4.pdf">PDF (Imposed for printing, A4 size paper)</a></li>
+            {{- end -}}
             </ul>
         </div>
     {{- end -}}

@@ -1,0 +1,39 @@
+@page {
+    size: 148.5mm 210mm;
+    margin-top: 4mm;
+    margin-right: 4mm;
+    margin-left: 4mm;
+    margin-bottom: 6mm;
+}
+
+@page :left {
+    @bottom-left {
+        font-size: x-small;
+        margin-bottom: 4mm;
+        content: counter(page) ' / ' counter(pages);
+    }
+}
+
+@page :right {
+    @bottom-right {
+        font-size: x-small;
+        margin-bottom: 4mm;
+        content: counter(page) ' / ' counter(pages);
+    }
+}
+
+@page :first {
+    @bottom-right {
+        font-size: x-small;
+        margin-bottom: 4mm;
+        content: '';
+    }
+}
+
+@page last_page {
+    @bottom-left {
+        font-size: x-small;
+        margin-bottom: 4mm;
+        content: '';
+    }
+}

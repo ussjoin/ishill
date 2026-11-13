@@ -43,7 +43,12 @@
             </name>
         </author>
         <id>{{ .Permalink }}</id>
-        <link rel="alternate" type="application/pdf" href="{{ absURL .Path }}/{{- .Title | urlize -}}.zine.pdf"/>
+        {{- if .Site.Params.output_letter -}}
+            <link rel="alternate" type="application/pdf" href="{{ absURL .Path }}/{{- .Title | urlize -}}.zine-letter.pdf"/>
+        {{- end -}}
+        {{- if .Site.Params.output_a4 -}}
+            <link rel="alternate" type="application/pdf" href="{{ absURL .Path }}/{{- .Title | urlize -}}.zine-a4.pdf"/>
+        {{- end -}}
         <title>
             {{- if eq $thetype "leaflet" -}}
                 {{ .Page.Title }}
