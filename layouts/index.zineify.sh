@@ -29,7 +29,7 @@ echo $! > .PID
 
         {{ if .Site.Params.output_a4 }}
         weasyprint  -s 'http://localhost:8000{{ $a4style.RelPermalink }}' --optimize-images --dpi 150 http://localhost:8000{{ .Path }}/  .{{ .Path }}/{{- .Title | urlize -}}.view-a4.pdf
-        pdfimpose saddle -f a4 --imargin 10mm -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine-a4.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view-a4.pdf'
+        pdfimpose saddle -f a4 --imargin 1mm -o  '.{{ .Path }}/{{- .Title | urlize -}}.zine-a4.pdf' '.{{ .Path }}/{{- .Title | urlize -}}.view-a4.pdf'
         {{ end }}
     {{ end }}
 {{ end }}

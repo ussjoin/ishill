@@ -1,15 +1,15 @@
 @page {
-    size: 148.5mm 210mm;
-    margin-top: 4mm;
-    margin-right: 4mm;
-    margin-left: 4mm;
-    margin-bottom: 6mm;
+    size: 148mm 209.8mm;
+    margin-top: 6mm;
+    margin-right: 6mm;
+    margin-left: 6mm;
+    margin-bottom: 8mm;
 }
 
 @page :left {
     @bottom-left {
         font-size: x-small;
-        margin-bottom: 4mm;
+        margin-bottom: 6mm;
         content: counter(page) ' / ' counter(pages);
     }
 }
@@ -17,7 +17,7 @@
 @page :right {
     @bottom-right {
         font-size: x-small;
-        margin-bottom: 4mm;
+        margin-bottom: 6mm;
         content: counter(page) ' / ' counter(pages);
     }
 }
@@ -25,7 +25,7 @@
 @page :first {
     @bottom-right {
         font-size: x-small;
-        margin-bottom: 4mm;
+        margin-bottom: 6mm;
         content: '';
     }
 }
@@ -33,7 +33,15 @@
 @page last_page {
     @bottom-left {
         font-size: x-small;
-        margin-bottom: 4mm;
+        margin-bottom: 6mm;
         content: '';
     }
+}
+
+.titlepage-leadin-spacer {
+    height: 4mm;
+}
+
+.titlepage-print-container {
+    height: 185mm;
 }

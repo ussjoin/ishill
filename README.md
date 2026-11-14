@@ -19,6 +19,8 @@ Because this is a Theme That Makes Zines, the documentation is in the example si
 
 A request: if you start using this, send me an email (<ishill@ussjoin.com>) or an issue here on GitLab/GitHub. If you do, I'll probably link to you here in this README, or in another place. And I'll be fascinated to see what you come up with.
 
-# License
+# Licenses
 
-[KaTeX](https://github.com/KaTeX/KaTeX) files are released under the MIT license.
+* [KaTeX](https://github.com/KaTeX/KaTeX) files are released under the MIT license, and some of its files are included here (<./assets/css/katex-swap.css> (with some small modifications), and in <./static/fonts/KaTeX_...>).
+* Ishill installs (via [PyPI](https://pypi.org/)`) and uses, but doesn't redistribute, [Weasyprint](https://weasyprint.org/), under the [BSD License](https://github.com/Kozea/WeasyPrint/blob/main/LICENSE), and [pdfimpose](https://framagit.org/spalax/pdfimpose), under the [AGPLv3](https://framagit.org/spalax/pdfimpose/-/blob/main/LICENSE).
+* What remains is released under the [MIT License][./LICENSE].

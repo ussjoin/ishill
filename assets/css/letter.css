@@ -37,3 +37,11 @@
         content: '';
     }
 }
+
+.titlepage-print-container {
+    height: 7.5in;
+}
+
+.titlepage-leadin-spacer {
+    height: 0.15in;
+}
