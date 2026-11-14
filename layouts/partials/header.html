@@ -27,8 +27,10 @@
 
 	<!-- https://gohugo.io/functions/transform/tomath/ -->
 
+	{{ if .Params.mathml }}
 		{{ $style := resources.Get "css/katex-swap.css" | fingerprint }}
 		<link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+	{{ end }}
 
 	<!-- Custom CSS styles get applied last -->
 	{{- if isset .Site.Params "customcss" }}
